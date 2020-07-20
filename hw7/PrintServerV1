@@ -1,0 +1,15 @@
+public class PrintServer implements Runnable {
+private final Queue<String> requests = new LinkedList<String>();
+public PrintServer() {
+new Thread(this).start();
+}
+public void printRequest(String s) {
+requests.add(s);
+}
+public void run() {
+for(;;) realPrint(requests.remove());
+}
+private void realPrint(String s) {
+// do the real work of outputting the string to the screen
+}
+}
